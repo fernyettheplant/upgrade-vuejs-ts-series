@@ -12,14 +12,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
 import Hello from '../components/Hello.vue'
-import World from '../components/World.jsx'
+import World from '../components/World'
 
-export default {
+@Component({
   components: {
     Hello,
     World
   }
-}
+})
+export default class Home extends Vue {}
 </script>
