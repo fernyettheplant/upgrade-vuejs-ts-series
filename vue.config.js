@@ -6,5 +6,7 @@ module.exports = {
       shouldServeApp: true,
       serverDir: './srv'
     }
-  }
+  },
+
+  transpileDependencies: ['vuex-module-decorators']
 }

@@ -4,12 +4,12 @@ export default {
     text: 'inside module store'
   },
   mutations: {
-    setText (state, newText) {
+    setText (state: any, newText: string) {
       state.text = newText
     }
   },
   getters: {
-    textUpper: (state) => {
+    textUpper: (state: any) => {
       return state.text.toUpperCase()
     }
   }

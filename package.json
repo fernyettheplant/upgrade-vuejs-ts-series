@@ -11,17 +11,24 @@
   },
   "dependencies": {
     "vue": "^2.5.17",
+    "vue-class-component": "^6.0.0",
+    "vue-property-decorator": "^7.0.0",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-class": "^0.3.1",
+    "vuex-module-decorators": "^0.9.7"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.0",
     "@vue/cli-plugin-eslint": "^3.2.1",
+    "@vue/cli-plugin-typescript": "^3.2.0",
     "@vue/cli-service": "^3.2.0",
     "@vue/eslint-config-standard": "^4.0.0",
+    "@vue/eslint-config-typescript": "^3.2.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
+    "typescript": "^3.0.0",
     "vue-cli-plugin-express": "^0.0.4",
     "vue-template-compiler": "^2.5.17"
   }
