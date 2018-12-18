@@ -1,3 +1,10 @@
 module.exports = {
-  lintOnSave: false
+  lintOnSave: false,
+
+  pluginOptions: {
+    express: {
+      shouldServeApp: true,
+      serverDir: './srv'
+    }
+  }
 }
