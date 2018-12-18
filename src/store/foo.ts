@@ -1,16 +1,19 @@
-export default {
-  namespaced: true,
-  state: {
-    text: 'inside module store'
-  },
-  mutations: {
-    setText (state: any, newText: string) {
-      state.text = newText
-    }
-  },
-  getters: {
-    textUpper: (state: any) => {
-      return state.text.toUpperCase()
-    }
+import { VuexModule, Module, Mutation } from 'vuex-module-decorators'
+
+@Module({
+  namespaced: true
+  })
+class Foo extends VuexModule {
+  public text: string = 'inside module store'
+
+  @Mutation
+  setText (newText: string) {
+    this.text = newText
+  }
+
+  get textUpper (): string {
+    return this.text.toUpperCase()
   }
 }
+
+export default Foo
