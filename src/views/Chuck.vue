@@ -19,13 +19,20 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import axios, { AxiosResponse } from 'axios'
-import ChuckApiResponse from '@/models/ChuckApiResponse'
+import { Component } from 'vue-property-decorator'
+import { mixins } from 'vue-class-component'
+import ContainerInjector from '../mixins/ContainerInjector'
+import SERVICE_IDENTIFIER from '../ioc/identifiers'
+import IChuckNorrisService from '../services/interfaces/IChuckNorrisService'
 
 @Component
-export default class Chuck extends Vue {
+export default class Chuck extends mixins(ContainerInjector) {
   private quote: string = ''
+  private _chuckNorrisService!: IChuckNorrisService
+
+  created () {
+    this._chuckNorrisService = this._container.get<IChuckNorrisService>(SERVICE_IDENTIFIER.CHUCK_NORRIS_SERVICE)
+  }
 
   async mounted (): Promise<void> {
     await this.getJoke()
@@ -33,8 +40,7 @@ export default class Chuck extends Vue {
 
   private async getJoke (): Promise<void> {
     this.quote = ''
-    const { data }: AxiosResponse<ChuckApiResponse> = await axios.get('/api/chuck')
-    this.quote = data.joke
+    this.quote = await this._chuckNorrisService.getJoke()
   }
 }
 </script>

@@ -30,6 +30,20 @@
   </div>
 </template>
 
+<script>
+import { Component, Vue } from 'vue-property-decorator'
+import SERVICE_IDENTIFIERS from './ioc/identifiers'
+import Container from './ioc/DependencyConfigs'
+
+@Component({
+  provide: {
+    [SERVICE_IDENTIFIERS.CONTAINER]: Container
+  }
+})
+export default class App extends Vue {
+}
+</script>
+
 <style scoped>
 .nav {
   padding: 25px;
