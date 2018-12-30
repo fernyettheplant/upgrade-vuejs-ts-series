@@ -17,6 +17,14 @@
       >
         Store
       </RouterLink>
+      <RouterLink
+        to="/chuck-norris"
+        exact
+        class="nav-item nav-link"
+        active-class="active"
+      >
+        Chuck Norris
+      </RouterLink>
     </nav>
     <RouterView class="container" />
   </div>

@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios'
 import { Application, Request, Response } from 'express'
-import ChuckJoke from './model/ChuckJoke'
+import ChuckJoke from '../src/models/ChuckJoke'
+import ChuckApiResponse from '../src/models/ChuckApiResponse'
 
 const URL = 'https://api.chucknorris.io/jokes/random'
 
@@ -15,11 +16,7 @@ export default (app: Application) => {
           }
         })
 
-        res.json({
-          data: {
-            joke: data.value
-          }
-        })
+        res.json(new ChuckApiResponse(data.value))
       } catch (error) {
         res.status(500).send({
           error: 'Something happened!'
