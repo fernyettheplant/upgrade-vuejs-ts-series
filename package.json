@@ -10,6 +10,7 @@
     "express:run": "vue-cli-service express:run"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",
@@ -19,6 +20,7 @@
     "vuex-module-decorators": "^0.9.7"
   },
   "devDependencies": {
+    "@types/express": "^4.16.0",
     "@vue/cli-plugin-babel": "^3.2.0",
     "@vue/cli-plugin-eslint": "^3.2.1",
     "@vue/cli-plugin-typescript": "^3.2.0",
