@@ -32,19 +32,25 @@
   </div>
 </template>
 
-<script>
-import { mapState, mapGetters, mapMutations } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { namespace } from 'vuex-class'
 
-export default {
-  computed: {
-    ...mapState('Foo', ['text']),
-    ...mapGetters('Foo', ['textUpper'])
-  },
-  methods: {
-    ...mapMutations('Foo', ['setText']),
-    changeText (event) {
-      this.setText(event.target.value)
-    }
+const fooModule = namespace('Foo')
+
+@Component
+export default class Store extends Vue {
+  @fooModule.State
+  private text!: string
+
+  @fooModule.Getter
+  private textUpper!: string
+
+  @fooModule.Mutation
+  private setText!: (newText: string) => void
+
+  changeText (event: any): void {
+    this.setText(event.target.value)
   }
 }
 </script>
